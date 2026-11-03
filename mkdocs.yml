@@ -1,0 +1,37 @@
+site_name: FlexFund Python SDK
+site_description: The official Python SDK for the FlexFund REST API
+strict: true
+
+theme:
+  name: material
+
+plugins:
+  - search
+  - gen-files:
+      scripts:
+        - docs/gen_ref.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            show_source: false
+            members_order: source
+            show_root_heading: true
+            docstring_style: google
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - OAuth scopes: scopes.md
+  - Reference: reference/
+  - Changelog: changelog.md
+
+exclude_docs: |
+  gen_ref.py
